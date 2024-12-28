@@ -1,85 +1,104 @@
-data class Student(val id: Long, val name: String, val age: Int)
-
-fun printMenu() {
-    //print a menu for crud student data
-    println("1. Add a new student")
-    println("2. Search student by id")
-    println("3. Delete student by id")
-    println("4. Export highest gpa list")
-    println("5. Print student list")
-    println("6. Sort student list by fName ascending")
-    println("0. Exit")
+data class Student(val id: Long, val name: String, val age: Int) {
+    override fun toString() = "ID: $id | Name: $name | Age: $age years old"
 }
 
-fun printList(isSort: Boolean = false, list: MutableList<Student>) {
-    if (list.isEmpty()) println("Empty List") else {
-        if (!isSort) {
-            list.forEachIndexed { index, student ->
-                println("${index + 1} | ${student.id} | ${student.name} | ${student.age} years old")
-            }
+class StudentManager {
+    private val students = mutableListOf<Student>()
+
+    fun addStudent() {
+        val id = getUniqueId()
+        println("Enter student name:")
+        val name = readString()
+        println("Enter student age:")
+        val age = readInt()
+
+        students.add(Student(id, name, age))
+        println("Student added successfully!")
+    }
+
+    fun searchStudent() {
+        println("Enter the student id: ")
+        val id = readLong()
+        students.find { it.id == id }
+            ?.let { println(it) }
+            ?: println("Student not found")
+    }
+
+    fun deleteStudent() {
+        println("Enter student id:")
+        val id = readLong()
+        if (students.removeIf { it.id == id }) {
+            println("Student with id $id has been removed")
+        } else {
+            println("Student with id $id not found")
         }
-        list.sortByDescending { it.name }.run {
-            list.forEachIndexed { index, student ->
-                println("${index + 1} | ${student.id} | ${student.name} | ${student.age} years old")
-            }
+    }
+
+    fun printStudents(sorted: Boolean = false) {
+        if (students.isEmpty()) {
+            println("Empty List")
+            return
+        }
+
+        val studentsToPrint = if (sorted) {
+            students.sortedBy { it.name }
+        } else {
+            students
+        }
+
+        studentsToPrint.forEachIndexed { index, student ->
+            println("${index + 1}. $student")
+        }
+    }
+
+    private fun getUniqueId(): Long {
+        while (true) {
+            println("Enter student id:")
+            val id = readLong()
+            if (!students.any { it.id == id }) return id
+            println("Student with id $id already exists")
         }
     }
 }
 
+enum class MenuOption(val option: Int, val description: String) {
+    ADD(1, "Add a new student"),
+    SEARCH(2, "Search student by id"),
+    DELETE(3, "Delete student by id"),
+    EXPORT(4, "Export highest gpa list"),
+    PRINT(5, "Print student list"),
+    SORT(6, "Sort student list by name ascending"),
+    EXIT(0, "Exit");
+
+    companion object {
+        fun fromInt(value: Int) = values().find { it.option == value }
+    }
+}
+
+fun printMenu() {
+    println("\n=== Student Management System ===")
+    MenuOption.values().forEach {
+        println("${it.option}. ${it.description}")
+    }
+    println("Enter your choice:")
+}
+
 fun main() {
-    val studentList = mutableListOf<Student>()
-    do {
+    val manager = StudentManager()
+
+    while (true) {
         printMenu()
-        //read user input
-        println("Enter your choice:")
-        val input = readInt()
-        println("You entered: $input")
-        when (input) {
-
-
-            1 -> {
-                var id: Long
-                while (true) {
-                    println("Enter student id:")
-                    id = readLong()
-                    if (!studentList.any { it.id == id }) break else println("Student with id $id already exists")
-                }
-
-                println("Enter student name:")
-                val name = readString()
-                println("Enter student age:")
-                val age = readInt()
-
-                studentList.add(Student(id, name, age))
+        when (MenuOption.fromInt(readInt())) {
+            MenuOption.ADD -> manager.addStudent()
+            MenuOption.SEARCH -> manager.searchStudent()
+            MenuOption.DELETE -> manager.deleteStudent()
+            MenuOption.PRINT -> manager.printStudents()
+            MenuOption.SORT -> manager.printStudents(sorted = true)
+            MenuOption.EXIT -> {
+                println("Goodbye!")
+                return
             }
-
-            2 -> {
-                println("Enter the student id: ")
-                val id = readLong()
-                println(studentList.find { it.id == id } ?: "Not found")
-            }
-
-            3 -> {
-                println("Enter student id:")
-                val id = readLong()
-                val student = studentList.find { it.id == id }
-                if (student == null) println("Student with id $id not found")
-                else {
-                    studentList.remove(student)
-                    println("Student with id $id has been removed")
-                }
-            }
-
-            5 -> {
-                printList(false, studentList)
-            }
-
-            6 -> {
-                printList(true, studentList)
-            }
-
-            0 -> return
-            else -> println("Invalid input")
+            else -> println("Invalid option. Please try again.")
         }
-    } while (input != 0)
+    }
 }
