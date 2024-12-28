@@ -14,7 +14,3 @@ operator fun String.times(n: Int): String {
     }
     return sb.toString()
 }
-
-fun main() {
-    // start here
-}
