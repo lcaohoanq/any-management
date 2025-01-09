@@ -1,0 +1,58 @@
+server:
+  port: 4000
+
+api:
+  prefix: /api/v1
+
+spring:
+  datasource:
+    url: ${MYSQL_DATASOURCE:jdbc:mysql://localhost:3311/mysql_starter?useSSL=false&serverTimezone=UTC}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:Luucaohoang1604^^}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    root: info
+    org.springframework: warn
+    org.hibernate: warn
+    springframework.security: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    path: ${LOG_PATH:logs}
+    name: ${LOG_PATH:logs}/application.log
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: ${api.prefix}/swagger-ui.html
+    enabled: true
+    disable-swagger-default-url: true
+    security:
+      basic:
+        enabled: true
+  api-docs:
+    path: ${api.prefix}/api-docs
+    enabled: true
+  show-actuator: true
+  paths-to-match: ${api.prefix}/**
+
+#health check
+management:
+  endpoints:
+    web:
+      base-path: /api/v1/actuator
+      exposure:
+        include: "health,info,prometheus"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
