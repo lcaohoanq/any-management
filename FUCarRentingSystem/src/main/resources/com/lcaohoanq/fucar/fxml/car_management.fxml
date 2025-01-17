@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #F5EDDC;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcaohoanq.fucar.controllers.CarManagement">
+
+	<Label layoutX="504.0" layoutY="14.0" prefHeight="55.0" prefWidth="292.0" text="Car Management">
+		<font>
+			<Font size="36.0" />
+		</font>
+	</Label>
+
+	<!-- Customer Fields -->
+	<Label layoutX="43.0" layoutY="98.0" text="Car ID" />
+	<TextField fx:id="txtCarID" layoutX="150.0" layoutY="93.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="43.0" layoutY="139.0" text="Car Name" />
+	<TextField fx:id="txtCarName" layoutX="150.0" layoutY="134.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="43.0" layoutY="182.0" text="Car Model Year" />
+	<TextField fx:id="txtModelYear" layoutX="150.0" layoutY="177.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="643.0" layoutY="97.0" text="Color" />
+	<TextField fx:id="txtColor" layoutX="750.0" layoutY="93.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="643.0" layoutY="140.0" text="Capacity" />
+	<TextField fx:id="txtCapacity" layoutX="750.0" layoutY="136.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="643.0" layoutY="183.0" text="Description" />
+	<TextField fx:id="txtDescription" layoutX="750.0" layoutY="178.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="643.0" layoutY="226.0" text="Import Date" />
+	<DatePicker fx:id="dpImportDate" layoutX="750.0" layoutY="221.0" prefHeight="26.0" prefWidth="400.0" />
+
+	<Label layoutX="643.0" layoutY="272.0" text="Producer" />
+	<ComboBox fx:id="cbProducer" layoutX="750.0" layoutY="267.0" prefHeight="26.0" prefWidth="400.0" promptText="Select Car Producer here" />
+
+	<!-- Buttons -->
+	<Button fx:id="btnAdd" layoutX="64.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="46.0" prefWidth="125.0" text="Add">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Button>
+	<Button fx:id="btnUpdate" layoutX="214.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="125.0" text="Update">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Button>
+	<Button fx:id="btnDelete" layoutX="362.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="125.0" text="Delete">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Button>
+	<Button fx:id="btnCancel" layoutX="511.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="46.0" prefWidth="125.0" text="Cancel">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Button>
+	<TableView fx:id="tblCars" layoutX="43.0" layoutY="319.0" prefHeight="197.0" prefWidth="1109.0">
+		<columns>
+			<TableColumn fx:id="carId" prefWidth="66.0" text="Car ID" />
+			<TableColumn fx:id="carName" prefWidth="97.0" text="Car Name" />
+			<TableColumn fx:id="carModelYear" prefWidth="114.0" text="Car Model Year" />
+			<TableColumn fx:id="color" prefWidth="79.0" text="Color" />
+			<TableColumn fx:id="capacity" prefWidth="94.0" text="Capacity" />
+			<TableColumn fx:id="description" prefWidth="131.0" text="Description" />
+			<TableColumn fx:id="importDate" prefWidth="117.0" text="Import Date" />
+			<TableColumn fx:id="rentPrice" prefWidth="113.0" text="Rent Price" />
+			<TableColumn fx:id="status" prefWidth="103.0" text="Status" />
+			<TableColumn fx:id="producer" minWidth="0.0" prefWidth="194.0" text="Producer" />
+		</columns>
+	</TableView>
+	<Label layoutX="44.0" layoutY="226.0" prefHeight="17.0" prefWidth="65.0" text="Rent Price" />
+	<TextField fx:id="txtRentPrice" layoutX="150.0" layoutY="221.0" prefHeight="26.0" prefWidth="400.0" />
+	<Label layoutX="44.0" layoutY="271.0" prefHeight="17.0" prefWidth="65.0" text="Status" />
+	<ComboBox fx:id="cbStatus" layoutX="150.0" layoutY="267.0" prefHeight="25.0" prefWidth="400.0" promptText="Select status here" />
+</AnchorPane>

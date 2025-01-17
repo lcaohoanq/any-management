@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #F5EDDC;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcaohoanq.fucar.controllers.TransactionReportController">
+   <HBox alignment="CENTER" prefHeight="59.0" prefWidth="1300.0">
+      <children>
+      
+        <Label prefHeight="43.0" prefWidth="216.0" text="Transaction Report">
+          <font>
+            <Font name="System Bold" size="24.0" />
+          </font>
+        </Label>
+      </children>
+   </HBox>
+
+  <Label layoutX="29.0" layoutY="90.0" text="Start Date:">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+  <DatePicker fx:id="startDatePicker" layoutX="115.0" layoutY="90.0" />
+
+  <Label layoutX="29.0" layoutY="130.0" text="End Date:">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+  <DatePicker fx:id="endDatePicker" layoutX="115.0" layoutY="130.0" />
+
+  <Button fx:id="generateReportButton" layoutX="170.0" layoutY="171.0" prefHeight="27.0" prefWidth="124.0" text="Generate Report" />
+
+  <TableView fx:id="reportTable" layoutX="29.0" layoutY="227.0" prefHeight="340.0" prefWidth="1236.0">
+    <columns>
+      <TableColumn fx:id="rentalIdColumn" text="Rental ID" />
+      <TableColumn fx:id="customerNameColumn" prefWidth="278.0" text="Customer Name" />
+      <TableColumn fx:id="carNameColumn" prefWidth="189.0" text="Car Name" />
+      <TableColumn fx:id="pickupDateColumn" prefWidth="197.0" text="Pickup Date" />
+      <TableColumn fx:id="returnDateColumn" prefWidth="264.0" text="Return Date" />
+      <TableColumn fx:id="rentPriceColumn" prefWidth="227.0" text="Rent Price" />
+    </columns>
+  </TableView>
+   <ComboBox layoutX="28.0" layoutY="171.0" prefHeight="27.0" prefWidth="124.0" promptText="Export as..." />
+
+</AnchorPane>

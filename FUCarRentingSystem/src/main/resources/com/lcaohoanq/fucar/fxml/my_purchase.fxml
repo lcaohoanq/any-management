@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #F5EDDC;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcaohoanq.fucar.controllers.MyPurchaseController">
+  <children>
+    <HBox prefHeight="100.0" prefWidth="1300.0">
+      <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="128.0" prefWidth="1300.0" text="My Purchase">
+          <font>
+            <Font name="System Bold" size="36.0" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+
+    <!-- Buttons -->
+    <HBox layoutX="70.0" layoutY="450.0" spacing="10" />
+
+    <!-- Car Rentals Table -->
+    <TableView fx:id="tblCarRentals" layoutX="33.0" layoutY="105.0" prefHeight="466.0" prefWidth="1238.0">
+      <columns>
+        <TableColumn fx:id="id" prefWidth="48.0" text="ID" />
+        <TableColumn fx:id="customerId" prefWidth="101.0" text="Customer" />
+        <TableColumn fx:id="carId" prefWidth="221.0" text="Car" />
+        <TableColumn fx:id="pickupDate" prefWidth="162.0" text="Pickup Date" />
+        <TableColumn fx:id="returnDate" prefWidth="283.0" text="Return Date" />
+        <TableColumn fx:id="rentPrice" prefWidth="192.0" text="Rent Price" />
+        <TableColumn fx:id="status" prefWidth="209.0" text="Status" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

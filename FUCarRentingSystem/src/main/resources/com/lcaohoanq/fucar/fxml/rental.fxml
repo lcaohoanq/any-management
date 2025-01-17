@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #F5EDDC;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcaohoanq.fucar.controllers.RentalController">
+  <children>
+    <HBox prefHeight="100.0" prefWidth="1300.0">
+      <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="128.0" prefWidth="1300.0" text="Car Rental Service">
+          <font>
+            <Font name="System Bold" size="36.0" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+
+    <!-- Form Fields -->
+    <Label layoutX="33.0" layoutY="140.0" text="Customer">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <TextField fx:id="txtCustomerName" editable="false" layoutX="152.0" layoutY="140.0" prefHeight="25.0" prefWidth="200.0" promptText="Customer name..." />
+
+    <Label layoutX="33.0" layoutY="180.0" text="Car">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <ComboBox fx:id="cbCar" layoutX="152.0" layoutY="180.0" prefHeight="25.0" prefWidth="200.0" promptText="Select car..." />
+
+    <Label layoutX="32.0" layoutY="220.0" text="Pickup Date">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <DatePicker fx:id="dpPickupDate" layoutX="152.0" layoutY="220.0" prefHeight="25.0" prefWidth="200.0" />
+
+    <Label layoutX="32.0" layoutY="260.0" text="Return Date">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <DatePicker fx:id="dpReturnDate" layoutX="152.0" layoutY="260.0" prefHeight="25.0" prefWidth="200.0" />
+
+    <Label layoutX="32.0" layoutY="300.0" text="Rent Price">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <TextField fx:id="txtRentPrice" editable="false" layoutX="152.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0" />
+
+    <Label layoutX="32.0" layoutY="340.0" text="Total Cost">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <TextField fx:id="txtTotalCost" editable="false" layoutX="152.0" layoutY="340.0" prefHeight="25.0" prefWidth="200.0" />
+
+    <Label layoutX="32.0" layoutY="380.0" text="Status">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <ComboBox fx:id="cbStatus" layoutX="152.0" layoutY="380.0" prefWidth="200.0" promptText="Select status..." />
+
+    <!-- Buttons -->
+    <HBox layoutX="55.0" layoutY="513.0" prefHeight="45.0" prefWidth="285.0" spacing="10">
+      <children>
+        <Button fx:id="btnAdd" prefHeight="60.0" prefWidth="102.0" text="Add" />
+        <Button fx:id="btnUpdate" prefHeight="62.0" prefWidth="102.0" text="Update" />
+        <Button fx:id="btnCancel" prefHeight="59.0" prefWidth="109.0" text="Cancel" />
+      </children>
+    </HBox>
+
+    <!-- Car Rentals Table -->
+    <TableView fx:id="tblCarRentals" layoutX="400.0" layoutY="101.0" prefHeight="457.0" prefWidth="860.0">
+      <columns>
+        <TableColumn fx:id="id" prefWidth="50.0" text="ID" />
+        <TableColumn fx:id="customerId" prefWidth="107.0" text="Customer" />
+        <TableColumn fx:id="carId" prefWidth="153.0" text="Car" />
+        <TableColumn fx:id="pickupDate" prefWidth="100.0" text="Pickup Date" />
+        <TableColumn fx:id="returnDate" prefWidth="128.0" text="Return Date" />
+        <TableColumn fx:id="rentPrice" prefWidth="197.0" text="Rent Price" />
+        <TableColumn fx:id="status" prefWidth="124.0" text="Status" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #f1f1f1" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcaohoanq.fucar.controllers.UserManagementController">
+	<children>
+		<Label layoutX="503.0" layoutY="-10.0" prefHeight="100" prefWidth="312.0" text="User Management">
+			<font>
+				<Font size="36.0" />
+			</font>
+		</Label>
+
+		<!-- Customer Fields -->
+		<Label layoutX="42.0" layoutY="95.0" text="Customer ID" />
+		<TextField fx:id="txtCustomerId" layoutX="149.0" layoutY="90.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="42.0" layoutY="129.0" text="Customer Name" />
+		<TextField fx:id="txtCustomerName" layoutX="149.0" layoutY="125.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="42.0" layoutY="164.0" text="Mobile" />
+		<TextField fx:id="txtMobile" layoutX="149.0" layoutY="159.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="682.0" layoutY="96.0" text="Birthday" />
+		<DatePicker fx:id="dpBirthday" layoutX="792.0" layoutY="91.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="42.0" layoutY="205.0" text="Identity Card" />
+		<TextField fx:id="txtIdentityCard" layoutX="149.0" layoutY="200.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="42.0" layoutY="248.0" text="Licence Number" />
+		<TextField fx:id="txtLicenceNumber" layoutX="149.0" layoutY="243.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="682.0" layoutY="144.0" text="Licence Date" />
+		<DatePicker fx:id="dpLicenceDate" layoutX="789.0" layoutY="139.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="682.0" layoutY="187.0" text="Email" />
+		<TextField fx:id="txtEmail" layoutX="789.0" layoutY="182.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="42.0" layoutY="288.0" text="Password" />
+		<PasswordField fx:id="txtPassword" layoutX="149.0" layoutY="287.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<!-- Account Fields -->
+		<Label layoutX="682.0" layoutY="224.0" text="Account Name" />
+		<TextField fx:id="txtAccountName" layoutX="789.0" layoutY="219.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<Label layoutX="682.0" layoutY="262.0" text="Role" />
+		<ComboBox fx:id="cbRole" layoutX="792.0" layoutY="263.0" prefHeight="26.0" prefWidth="400.0" />
+
+		<!-- Table for displaying Users -->
+		<TableView fx:id="tblUsers" layoutX="42.0" layoutY="334.0" prefHeight="191.0" prefWidth="1150.0">
+			<columns>
+				<TableColumn fx:id="customerId" prefWidth="75.0" text="Customer ID" />
+				<TableColumn fx:id="customerName" prefWidth="119.0" text="Customer Name" />
+				<TableColumn fx:id="mobile" prefWidth="82.0" text="Mobile" />
+				<TableColumn fx:id="birthday" prefWidth="98.0" text="Birthday" />
+				<TableColumn fx:id="identityCard" prefWidth="109.0" text="Identity Card" />
+				<TableColumn fx:id="licenceNumber" prefWidth="113.0" text="Licence Number" />
+				<TableColumn fx:id="licenceDate" prefWidth="143.0" text="Licence Date" />
+				<TableColumn fx:id="email" prefWidth="115.0" text="Email" />
+				<TableColumn fx:id="accountName" prefWidth="141.0" text="Account Name" />
+				<TableColumn fx:id="role" minWidth="0.0" prefWidth="154.0" text="Role" />
+			</columns>
+		</TableView>
+
+		<!-- Buttons -->
+		<Button fx:id="btnAdd" layoutX="42.0" layoutY="538.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="35.0" prefWidth="125.0" text="Add">
+			<font>
+				<Font name="System Bold" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnUpdate" layoutX="213.0" layoutY="538.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="125.0" text="Update">
+			<font>
+				<Font name="System Bold" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnDelete" layoutX="370.0" layoutY="538.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="125.0" text="Delete">
+			<font>
+				<Font name="System Bold" size="14.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnCancel" layoutX="534.0" layoutY="538.0" mnemonicParsing="false" onAction="#btnCancelOnAction" prefHeight="35.0" prefWidth="125.0" text="Cancel">
+			<font>
+				<Font name="System Bold" size="14.0" />
+			</font>
+		</Button>
+	</children>
+</AnchorPane>
